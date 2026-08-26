@@ -55,7 +55,11 @@ pub fn validate_status(status: &str) -> Result<(), McpError> {
 }
 
 pub fn validate_channel_type(channel_type: &str) -> Result<(), McpError> {
-    validate_one_of(channel_type, VALID_CHANNEL_TYPES, "advertising_channel_type")
+    validate_one_of(
+        channel_type,
+        VALID_CHANNEL_TYPES,
+        "advertising_channel_type",
+    )
 }
 
 // ---------------------------------------------------------------------------

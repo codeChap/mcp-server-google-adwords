@@ -88,11 +88,7 @@ impl GoogleAdsServer {
         let channel_type = p.advertising_channel_type.to_uppercase();
         validate_channel_type(&channel_type)?;
 
-        let status = p
-            .status
-            .as_deref()
-            .unwrap_or("PAUSED")
-            .to_uppercase();
+        let status = p.status.as_deref().unwrap_or("PAUSED").to_uppercase();
         if status != "ENABLED" && status != "PAUSED" {
             return Err(McpError::invalid_params(
                 "status for new campaign must be ENABLED or PAUSED",

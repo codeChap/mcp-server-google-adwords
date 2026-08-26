@@ -1,4 +1,4 @@
-use anyhow::{anyhow, Result};
+use anyhow::{Result, anyhow};
 use serde::Deserialize;
 use std::path::PathBuf;
 
@@ -68,5 +68,7 @@ fn validate(cfg: &Config) -> Result<()> {
 }
 
 impl Config {
-    pub fn login_customer_id(&self) -> Option<&str> { non_empty(&self.login_customer_id) }
+    pub fn login_customer_id(&self) -> Option<&str> {
+        non_empty(&self.login_customer_id)
+    }
 }

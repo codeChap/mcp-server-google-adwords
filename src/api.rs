@@ -81,11 +81,7 @@ impl GoogleAdsClient {
 
     /// Execute a mutate operation on a resource (e.g., campaigns, campaignBudgets).
     #[instrument(skip(self, operations), fields(resource = %resource))]
-    pub async fn mutate(
-        &self,
-        resource: &str,
-        operations: Vec<Value>,
-    ) -> Result<Value, ApiError> {
+    pub async fn mutate(&self, resource: &str, operations: Vec<Value>) -> Result<Value, ApiError> {
         let url = format!("{}/{}:mutate", self.base_url(), resource);
         let body = MutateRequest {
             operations,
